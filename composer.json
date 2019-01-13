@@ -17,7 +17,7 @@
     },
     "extra": {
         "laravel": {
-            "providers": ["RandyRankin\\LaravelPreset\\LaravelPresetServiceProvider"]
+            "providers": ["Randyrankin\\LaravelPreset\\LaravelPresetServiceProvider"]
         }
     }
 }
