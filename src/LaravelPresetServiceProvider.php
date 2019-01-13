@@ -1,6 +1,6 @@
 <?php
 
-namespace Randyrankin\LaravelPreset;
+namespace RandyRankin\LaravelPreset;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\Console\PresetCommand;
