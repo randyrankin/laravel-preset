@@ -1,0 +1,23 @@
+{
+    "name": "randyrankin/laravel-preset",
+    "description": "A customized Laravel Preset just the way I like it!",
+    "keywords": ["laravel", "laravel preset"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Randy Rankin",
+            "email": "rrrankin@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Laracasts\\LaravelPreset\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": ["RandyRankin\\LaravelPreset\\LaravelPresetServiceProvider"]
+        }
+    }
+}
