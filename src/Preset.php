@@ -1,6 +1,6 @@
 <?php
 
-namespace RandYRankin\LaravelPreset;
+namespace RandyRankin\LaravelPreset;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
