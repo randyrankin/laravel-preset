@@ -12,12 +12,12 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "RandyRankin\\LaravelPreset\\": "src/"
+            "Randyrankin\\LaravelPreset\\": "src/"
         }
     },
     "extra": {
         "laravel": {
-            "providers": ["RandyRankin\\LaravelPreset\\LaravelPresetServiceProvider"]
+            "providers": ["Randyrankin\\LaravelPreset\\LaravelPresetServiceProvider"]
         }
     }
 }
