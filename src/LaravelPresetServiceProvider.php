@@ -14,10 +14,11 @@ class LaravelPresetServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        PresetCommand::macro('rankin', function ($command) {
+        PresetCommand::macro('randyrankin', function ($command) {
             Preset::install();
 
-            $command->info('All finished! Remember to compile your assets!');
+            $command->info('Preset installed. To finish setup, run:');
+            $command->info('npm install && node_modules/.bin/tailwind init && npm run dev');
         });
     }
 }
