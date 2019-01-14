@@ -2,9 +2,9 @@
 
 namespace RandyRankin\LaravelPreset;
 
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\File;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Console\Presets\Preset as BasePreset;
+use Illuminate\Support\Arr;
 
 class Preset extends BasePreset
 {
@@ -51,8 +51,9 @@ class Preset extends BasePreset
 
     public static function updateStyles()
     {
-        File::makeDirectory(resource_path('sass/components', 0755, true));
-        File::delete(resource_path('sass/_variables.scss'));
+        $files = new Filesystem;
+        $files->makeDirectory(resource_path('sass/components', 0755, true));
+        $files->delete(resource_path('sass/_variables.scss'));
         copy(__DIR__ . '/stubs/app.scss', resource_path('sass/app.scss'));
         copy(__DIR__ . '/stubs/_custom-utilities.scss', resource_path('sass/_custom-utilities.scss'));
         copy(__DIR__ . '/stubs/components/_button.scss', resource_path('sass/components/_button.scss'));
@@ -60,8 +61,9 @@ class Preset extends BasePreset
 
     protected static function updateViews()
     {
-        File::delete(resource_path('views/welcome.blade.php'));
-        File::exists(File::resource_path('views/home.blade.php')) && File::delete($file);
-        File::copyDirectory(__DIR__ . '/stubs/views', resource_path('views'));
+        $files = new Filesystem;
+        $files->delete(resource_path('views/welcome.blade.php'));
+        $files->exists($file = resource_path('views/home.blade.php')) && $files->delete($file);
+        $files->copyDirectory(__DIR__ . '/stubs/views', resource_path('views'));
     }
 }
