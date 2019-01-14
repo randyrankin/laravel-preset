@@ -14,7 +14,7 @@ class LaravelPresetServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        PresetCommand::macro('laracasts', function ($command) {
+        PresetCommand::macro('rankin', function ($command) {
             Preset::install();
 
             $command->info('All finished! Remember to compile your assets!');
