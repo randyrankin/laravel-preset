@@ -11,7 +11,7 @@ class Preset extends BasePreset
     public static function install()
     {
         static::updatePackages();
-        static::updatekWebpackDotMix();
+        static::updateWebpackDotMix();
         static::gitignore();
         static::updateScripts();
         static::updateStyles();
@@ -23,12 +23,14 @@ class Preset extends BasePreset
         return array_merge([
                 'laravel-mix-tailwind' => '^0.1.0',
                 'tailwindcss' => '>=0.5.2',
-            ], Arr::except($packages, [
-            'bootstrap'
-            'jquery',
-            'lodash',
-            'popper.js',
-        ]));
+            ], 
+            Arr::except($packages, [
+                'bootstrap',
+                'jquery',
+                'lodash',
+                'popper.js',
+            ]
+        ));
     }
 
     public static function updateWebpackDotMix()
@@ -53,13 +55,13 @@ class Preset extends BasePreset
         File::delete(resource_path('sass/_variables.scss'));
         copy(__DIR__ . '/stubs/app.scss', resource_path('sass/app.scss'));
         copy(__DIR__ . '/stubs/_custom-utilities.scss', resource_path('sass/_custom-utilities.scss'));
-        copy(__DIR__ . '/stubs/components/_button.scss', resource_path('sass/components/_button.scss'))
+        copy(__DIR__ . '/stubs/components/_button.scss', resource_path('sass/components/_button.scss'));
     }
 
     protected static function updateViews()
     {
-        Files::delete(resource_path('views/welcome.blade.php'));
-        Files::exists(Files::resource_path('views/home.blade.php')) && Files::delete($file);
-        Files::copyDirectory(__DIR__ . '/stubs/views', resource_path('views'));
+        File::delete(resource_path('views/welcome.blade.php'));
+        File::exists(File::resource_path('views/home.blade.php')) && File::delete($file);
+        File::copyDirectory(__DIR__ . '/stubs/views', resource_path('views'));
     }
 }
