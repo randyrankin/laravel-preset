@@ -1,6 +1,6 @@
 {
     "name": "randyrankin/laravel-preset",
-    "description": "A customized Laravel Preset just the way I like it!",
+    "description": "A customized Laravel preset just the way I like it!",
     "keywords": ["laravel", "laravel preset"],
     "license": "MIT",
     "authors": [
@@ -9,6 +9,9 @@
             "email": "rrrankin@gmail.com"
         }
     ],
+    "require": {
+        "laravel/framework": "^5.7"
+    },
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
@@ -17,7 +20,9 @@
     },
     "extra": {
         "laravel": {
-            "providers": ["RandyRankin\\LaravelPreset\\LaravelPresetServiceProvider"]
+            "providers": [
+                "RandyRankin\\LaravelPreset\\LaravelPresetServiceProvider"
+            ]
         }
     }
 }
