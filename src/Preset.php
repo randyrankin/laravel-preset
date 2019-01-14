@@ -33,14 +33,14 @@ class Preset extends LaravelPreset
 
     public static function updateScripts()
     {
-        copy(__DIR__.'/stubs/app.js', resource_path('assets/js/app.js'));
-        copy(__DIR__.'/stubs/bootstrap.js', resource_path('assets/js/bootstrap.js'));
+        copy(__DIR__.'/stubs/app.js', resource_path('js/app.js'));
+        copy(__DIR__.'/stubs/bootstrap.js', resource_path('js/bootstrap.js'));
     }
 
     public static function updateStyles()
     {
-        File::cleanDirectory(resource_path('assets/sass'));
+        File::cleanDirectory(resource_path('sass'));
 
-        File::put(resource_path('assets/sass/app.sass'), '');
+        File::put(resource_path('sass/app.sass'), '');
     }
 }
