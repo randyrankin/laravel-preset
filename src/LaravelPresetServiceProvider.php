@@ -17,10 +17,13 @@ class LaravelPresetServiceProvider extends ServiceProvider
         PresetCommand::macro('randyrankin', function ($command) {
             Preset::install();
 
-            $command->info('Preset installed. To finish setup, run:');
-            $command->info('npm install && node_modules/.bin/tailwind init && npm run dev');
-            $command->info('Or, if you are using yarn, you may instead run:');
-            $command->info('yarn && node_modules/.bin/tailwind init && yarn run dev');
+            $command->info('Preset installed!');
+            $command->info('To finish setup, run one of the following commands:');
+            $command->info('If using npm:');
+            $command->comment('npm install && node_modules/.bin/tailwind init && npm run dev');
+            $command->info('If using yarn:');
+            $command->comment('yarn && node_modules/.bin/tailwind init && yarn run dev');
+            $command->info('NOW you can build someting amazing!!');
         });
     }
 }

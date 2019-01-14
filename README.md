@@ -3,7 +3,9 @@
 ### What are we doing?
 - Removing Bootstrap and jQuery
 - Installing Tailwind
-- Enhanceing .gitignore
+- Installing PurgeCSS
+- Customizing webpack.mix.js with extract() and purgeCss()
+- Enhancing .gitignore
 - Replacing stock welcome.blade.php with Tailwind friendly version
 
 ### Installation:
