@@ -22,7 +22,8 @@ class Preset extends BasePreset
     {
         return array_merge([
                 'laravel-mix-tailwind' => '^0.1.0',
-                'tailwindcss' => '>=0.5.2',
+                'laravel-mix-purgecss' => '^4.0.0',
+                'tailwindcss' => '>=0.7.2',
             ], 
             Arr::except($packages, [
                 'bootstrap',
