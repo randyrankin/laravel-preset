@@ -1,12 +1,16 @@
 # My Laravel Frontend Preset
 
+A Laravel frontend preset that scaffolds out new applications just the way I like 'em 👌🏻
+
 ### What are we doing?
-- Removing Bootstrap and jQuery
-- Installing Tailwind
-- Installing PurgeCSS
+- Removing Bootstrap, JQuery, Lodash and Popper.js
+- Installing Tailwind and PurgeCSS
 - Customizing webpack.mix.js with extract() and purgeCss()
 - Enhancing .gitignore
-- Replacing stock welcome.blade.php with Tailwind friendly version
+- Including a layouts\app.blade.php file
+- Replacing welcome.blade.php with a Tailwind friendly version
+
+Note: purgeCss() and version() does not run in dev builds (see webpack.mix.js).
 
 ### Installation:
 `composer install randyrankin/laravel-preset`
