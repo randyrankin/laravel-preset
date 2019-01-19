@@ -19,8 +19,8 @@ class LaravelPresetServiceProvider extends ServiceProvider
 
             $command->info('Preset installed!');
             $command->info('To finish setup, run one of the following commands:');
-            $command->info('If you are using npm: npm install && node_modules/.bin/tailwind init && npm run dev');
-            $command->info('If you are using yarn: yarn && node_modules/.bin/tailwind init && yarn run dev');
+            $command->info('If you are using npm: npm install && ./node_modules/.bin/tailwind init && npm run dev');
+            $command->info('If you are using yarn: yarn && ./node_modules/.bin/tailwind init && yarn run dev');
             $command->comment('NOW you can build someting amazing!!');
         });
     }
