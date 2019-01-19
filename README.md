@@ -16,5 +16,5 @@
 
 Once finished, run the build:
 
-- if you are using npm, run: `npm install && ./node_modules/.bin/tailwind init && npm run dev`
-- If you are using yarn, run: `yarn && ./node_modules/.bin/tailwind init && yarn run dev`
+- If you are using **npm**, run: `npm install && ./node_modules/.bin/tailwind init && npm run dev`
+- If you are using **yarn**, run: `yarn && ./node_modules/.bin/tailwind init && yarn run dev`
