@@ -5,7 +5,7 @@ namespace RandyRankin\LaravelPreset;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\Console\PresetCommand;
 
-class CustomLaravelPresetServiceProvider extends ServiceProvider
+class PresetServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap services.
@@ -14,8 +14,8 @@ class CustomLaravelPresetServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        PresetCommand::macro('custom-laravel-preset', function ($command) {
-            CustomLaravelPreset::install();
+        PresetCommand::macro('randyrankin', function ($command) {
+            Preset::install();
 
             $command->info('A custom Laravel preset has been installed!');
             $command->info('To finish setup, run one of the following commands:');
