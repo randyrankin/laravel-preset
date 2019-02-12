@@ -14,7 +14,7 @@ A Laravel frontend preset that scaffolds out new applications just the way I lik
 Note: purgeCss() and version() does not run in dev builds (see webpack.mix.js).
 
 ### Installation:
-`composer install randyrankin/laravel-preset`
+`composer require randyrankin/laravel-preset`
 
 ### Usage:
 `php artisan preset randyrankin`
