@@ -14,7 +14,7 @@ class PresetServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        PresetCommand::macro('randyrankin', function ($command) {
+        PresetCommand::macro('no-auth', function ($command) {
             Preset::install();
 
             $command->info('A custom Laravel preset has been installed!');
@@ -24,7 +24,7 @@ class PresetServiceProvider extends ServiceProvider
             $command->comment('NOW you can build someting amazing!!');
         });
 
-        PresetCommand::macro('randyrankin-auth', function ($command) {
+        PresetCommand::macro('with-auth', function ($command) {
             Preset::installAuth();
             $command->info('A custom Laravel preset with auth views has been installed!');
             $command->info('To finish setup, run one of the following commands:');

@@ -3,8 +3,9 @@
 namespace RandyRankin\LaravelPreset;
 
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Foundation\Console\Presets\Preset as BasePreset;
 use Illuminate\Support\Arr;
+use Illuminate\Container\Container;
+use Illuminate\Foundation\Console\Presets\Preset as BasePreset;
 
 class Preset extends BasePreset
 {
