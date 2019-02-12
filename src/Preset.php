@@ -18,6 +18,12 @@ class Preset extends BasePreset
         static::updateViews();
     }
 
+    public static function installAuth()
+    {
+        static::install();
+        static::scaffoldAuth();
+    }
+
     public static function updatePackageArray($packages)
     {
         return array_merge([
@@ -66,5 +72,31 @@ class Preset extends BasePreset
         $files->delete(resource_path('views/welcome.blade.php'));
         $files->exists($file = resource_path('views/home.blade.php')) && $files->delete($file);
         $files->copyDirectory(__DIR__ . '/stubs/views', resource_path('views'));
+    }
+
+    protected static function scaffoldAuth()
+    {
+        file_put_contents(app_path('Http/Controllers/HomeController.php'), static::compileControllerStub());
+        file_put_contents(
+            base_path('routes/web.php'),
+            "Auth::routes();\n\nRoute::get('/home', 'HomeController@index')->name('home');\n\n",
+            FILE_APPEND
+        );
+
+        $files = new Filesystem;
+        $files->delete(resource_path('views/home.blade.php'));
+        $files->exists($file = resource_path('views/home.blade.php')) && $files->delete($file);
+        copy(__DIR__ . '/stubs/views/home.blade.php', resource_path('views/home.blade.php'));
+        
+        // COPY AUTH DIR $files->copyDirectory(__DIR__ . '/stubs/resources/views', resource_path('views'));
+    }
+
+    protected static function compileControllerStub()
+    {
+        return str_replace(
+            '{{namespace}}',
+            Container::getInstance()->getNamespace(),
+            file_get_contents(__DIR__.'/stubs/controllers/HomeController.stub')
+        );
     }
 }

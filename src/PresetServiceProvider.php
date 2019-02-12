@@ -23,5 +23,14 @@ class PresetServiceProvider extends ServiceProvider
             $command->info('If you are using yarn: yarn && ./node_modules/.bin/tailwind init && yarn run dev');
             $command->comment('NOW you can build someting amazing!!');
         });
+
+        PresetCommand::macro('randyrankin-auth', function ($command) {
+            Preset::installAuth();
+            $command->info('A custom Laravel preset with auth views has been installed!');
+            $command->info('To finish setup, run one of the following commands:');
+            $command->info('If you are using npm: npm install && ./node_modules/.bin/tailwind init && npm run dev');
+            $command->info('If you are using yarn: yarn && ./node_modules/.bin/tailwind init && yarn run dev');
+            $command->comment('NOW you can build someting amazing!!');
+        });
     }
 }

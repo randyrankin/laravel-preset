@@ -15,7 +15,7 @@
     </head>
     <body class="antialiased bg-grey-lightest font-sans leading-tight text-black">
         <div id="app" v-cloak>
-            @yield('body')
+            @yield('content')
         </div>
         @stack('beforeScripts')
         <script src="{{ mix('js/manifest.js') }}"></script>
