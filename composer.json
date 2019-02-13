@@ -15,13 +15,13 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "RandyRankin\\LaravelPreset\\": "src/"
+            "RandyRankin\\LaravelFrontendPreset\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "RandyRankin\\LaravelPreset\\LaravelPresetServiceProvider"
+                "RandyRankin\\LaravelFrontendPreset\\LaravelFrontendPresetServiceProvider"
             ]
         }
     }

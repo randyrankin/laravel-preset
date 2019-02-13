@@ -1,13 +1,14 @@
 <?php
 
-namespace RandyRankin\LaravelPreset;
+namespace RandyRankin\LaravelFrontendPreset;
 
-use Illuminate\Filesystem\Filesystem;
+
 use Illuminate\Support\Arr;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Container\Container;
 use Illuminate\Foundation\Console\Presets\Preset;
 
-class LaravelPreset extends Preset
+class LaravelFrontendPreset extends Preset
 {
     public static function install()
     {
@@ -28,9 +29,10 @@ class LaravelPreset extends Preset
     public static function updatePackageArray($packages)
     {
         return array_merge([
+                'laravel-mix' => '^4.0.14',
                 'laravel-mix-tailwind' => '^0.1.0',
-                'laravel-mix-purgecss' => '^4.0.0',
-                'tailwindcss' => '>=0.7.2',
+                'laravel-mix-purgecss' => '^4.1',
+                'tailwindcss' => '>=0.7.4',
             ], 
             Arr::except($packages, [
                 'bootstrap',
