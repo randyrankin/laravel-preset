@@ -5,9 +5,9 @@ namespace RandyRankin\LaravelPreset;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
 use Illuminate\Container\Container;
-use Illuminate\Foundation\Console\Presets\Preset as BasePreset;
+use Illuminate\Foundation\Console\Presets\Preset;
 
-class Preset extends BasePreset
+class LaravelPreset extends Preset
 {
     public static function install()
     {
