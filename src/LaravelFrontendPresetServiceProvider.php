@@ -18,8 +18,7 @@ class LaravelFrontendPresetServiceProvider extends ServiceProvider
             
             
             if ($command->confirm('Do you wish to install Auth? (yes|no)[no]',true)) {
-                // $command->confirm('Do you want Auth Scaffolding? (yes|no)[no]',true))) {
-            //     LaravelFrontendPreset::installAuth();
+                LaravelFrontendPreset::installAuth();
                 $command->info('A custom Laravel frontend preset with Vue, TailwindCSS and Auth scaffolding has been installed!');
             }
             else
@@ -28,15 +27,21 @@ class LaravelFrontendPresetServiceProvider extends ServiceProvider
                 $command->info('A custom Laravel frontend preset with Vue and TailwindCSS has been installed!');
             }
 
+
             // if ($command->confirm('Do you want to compile your assets?')) {
                 // LaravelFrontendPreset::installAuth();
                 // $command->info('A custom Laravel frontend preset with Vue, TailwindCSS and Auth scaffolding has been installed!');
             // }
 
-            // $command->info('To finish setup, run one of the following commands:');
-            // $command->info('If you are using npm: npm install && ./node_modules/.bin/tailwind init && npm run dev');
-            // $command->info('If you are using yarn: yarn && ./node_modules/.bin/tailwind init && yarn run dev');
-            // $command->comment('NOW you can build someting amazing!!');
+            // if ($command->confirm('Do you want to remove this package from composer.json (you really don't need it any more)?')) {
+                // LaravelFrontendPreset::installAuth();
+                // $command->info('A custom Laravel frontend preset with Vue, TailwindCSS and Auth scaffolding has been installed!');
+            // }
+
+            $command->info('To finish setup, run one of the following commands:');
+            $command->info('If you are using npm: npm install && ./node_modules/.bin/tailwind init && npm run dev');
+            $command->info('If you are using yarn: yarn && ./node_modules/.bin/tailwind init && yarn run dev');
+            $command->comment('NOW you can build someting amazing!!');
         });
 
         // PresetCommand::macro('laravel-frontend-auth', function ($command) {
