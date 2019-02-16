@@ -21,8 +21,9 @@ class LaravelFrontendPreset extends Preset
 
     public static function installAuth()
     {
-        static::install();
-        static::scaffoldAuth();
+        // static::install();
+        // static::scaffoldAuth();
+        $command->comment('OK, let\'s do that then!');
     }
 
     public static function updatePackageArray($packages)

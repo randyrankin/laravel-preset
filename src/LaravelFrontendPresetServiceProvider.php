@@ -16,20 +16,26 @@ class LaravelFrontendPresetServiceProvider extends ServiceProvider
     {
         PresetCommand::macro('laravel-frontend', function ($command) {
             LaravelFrontendPreset::install();
-            $command->info('A custom Laravel frontend preset with Vue and TailwindCSS has been installed!');
+            $command->info('A basic Laravel frontend preset with Vue and TailwindCSS has been installed!');
+            
+            if ($this->confirm('Do you want Auth Scaffolding?')) {
+                LaravelFrontendPreset::installAuth();
+                $command->info('A custom Laravel frontend preset with Vue, TailwindCSS and Auth scaffolding has been installed!');
+            }
+
             $command->info('To finish setup, run one of the following commands:');
             $command->info('If you are using npm: npm install && ./node_modules/.bin/tailwind init && npm run dev');
             $command->info('If you are using yarn: yarn && ./node_modules/.bin/tailwind init && yarn run dev');
             $command->comment('NOW you can build someting amazing!!');
         });
 
-        PresetCommand::macro('laravel-frontend-auth', function ($command) {
-            LaravelFrontendPreset::installAuth();
-            $command->info('A custom Laravel frontend preset with Vue, TailwindCSS and Auth scaffolding has been installed!');
-            $command->info('To finish setup, run one of the following commands:');
-            $command->info('If you are using npm: npm install && ./node_modules/.bin/tailwind init && npm run dev');
-            $command->info('If you are using yarn: yarn && ./node_modules/.bin/tailwind init && yarn run dev');
-            $command->comment('NOW you can build someting amazing!!');
-        });
+        // PresetCommand::macro('laravel-frontend-auth', function ($command) {
+        //     LaravelFrontendPreset::installAuth();
+        //     $command->info('A custom Laravel frontend preset with Vue, TailwindCSS and Auth scaffolding has been installed!');
+        //     $command->info('To finish setup, run one of the following commands:');
+        //     $command->info('If you are using npm: npm install && ./node_modules/.bin/tailwind init && npm run dev');
+        //     $command->info('If you are using yarn: yarn && ./node_modules/.bin/tailwind init && yarn run dev');
+        //     $command->comment('NOW you can build someting amazing!!');
+        // });
     }
 }
