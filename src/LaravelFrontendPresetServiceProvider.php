@@ -15,18 +15,13 @@ class LaravelFrontendPresetServiceProvider extends ServiceProvider
     public function boot()
     {
         PresetCommand::macro('laravel-frontend', function ($command) {
+            LaravelFrontendPreset::install();
+            $command->info('A custom Laravel frontend preset with Vue and TailwindCSS has been installed!');
             
-            
-            if ($command->confirm('Do you wish to install Auth? (yes|no)[no]',true)) {
+            if ($command->confirm('Do you wish to install Auth?',false)) {
                 LaravelFrontendPreset::installAuth();
-                $command->info('A custom Laravel frontend preset with Vue, TailwindCSS and Auth scaffolding has been installed!');
+                $command->info('Auth scaffolding has been installed!');
             }
-            else
-            {
-                LaravelFrontendPreset::install();
-                $command->info('A custom Laravel frontend preset with Vue and TailwindCSS has been installed!');
-            }
-
 
             // if ($command->confirm('Do you want to compile your assets?')) {
                 // LaravelFrontendPreset::installAuth();
