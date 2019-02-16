@@ -15,7 +15,6 @@
     </head>
     <body class="antialiased bg-grey-lightest font-sans leading-tight text-black">
         <div id="app" v-cloak>
-
         	@if(Route::has('login'))
 		        <div class="absolute pin-t pin-r mt-4 mr-4">
 		            @auth
@@ -26,7 +25,7 @@
 		            @endauth
 		        </div>
 		    @endif
-		    
+
 			<div>
 			    <div class="text-center font-thin tracking-wide text-5xl mb-2 text-purple">Laravel</div>
 			    <div class="text-center text-grey-dark">with Vue, Tailwind and PurgeCSS</div>
