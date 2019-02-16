@@ -2,7 +2,6 @@
 
 namespace RandyRankin\LaravelFrontendPreset;
 
-
 use Illuminate\Support\Arr;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Container\Container;
@@ -66,7 +65,7 @@ class LaravelFrontendPreset extends Preset
         $files->delete(resource_path('sass/_variables.scss'));
         copy(__DIR__ . '/stubs/app.scss', resource_path('sass/app.scss'));
         copy(__DIR__ . '/stubs/_custom-utilities.scss', resource_path('sass/_custom-utilities.scss'));
-        copy(__DIR__ . '/stubs/components/_button.scss', resource_path('sass/components/_button.scss'));
+        copy(__DIR__ . '/stubs/components/_button.scsss', resource_path('sass/components/_button.scss'));
     }
 
     protected static function updateViews()
