@@ -19,9 +19,8 @@ class LaravelFrontendPreset extends Preset
         static::updateViews();
     }
 
-    public static function installAuth()
+    public static function installAuthScaffolding()
     {
-        static::install();
         static::scaffoldAuth();
     }
 
@@ -77,7 +76,7 @@ class LaravelFrontendPreset extends Preset
         $files->copyDirectory(__DIR__ . '/stubs/views/layouts', resource_path('views/layouts'));
     }
 
-    protected static function scaffoldAuth()
+    protected static function installAuthScaffolding()
     {
         file_put_contents(app_path('Http/Controllers/HomeController.php'), static::compileControllerStub());
         file_put_contents(

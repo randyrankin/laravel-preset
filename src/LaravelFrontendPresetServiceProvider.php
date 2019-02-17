@@ -19,7 +19,7 @@ class LaravelFrontendPresetServiceProvider extends ServiceProvider
             $command->info('A custom Laravel frontend preset with Vue and TailwindCSS has been installed!');
             
             if ($command->confirm('Do you wish to install Auth?',false)) {
-                LaravelFrontendPreset::installAuth();
+                LaravelFrontendPreset::installAuthScaffolding();
                 $command->info('Auth scaffolding has been installed!');
             }
 
