@@ -73,7 +73,7 @@ class LaravelFrontendPreset extends Preset
         $files = new Filesystem;
         $files->delete(resource_path('views/welcome.blade.php'));
         $files->exists($file = resource_path('views/home.blade.php')) && $files->delete($file);
-        $files->copyDirectory(__DIR__ . '/stubs/views', resource_path('views'));
+        $files->copyDirectory(__DIR__ . '/stubs/views/layouts', resource_path('views/layouts'));
     }
 
     protected static function scaffoldAuth()
@@ -81,16 +81,15 @@ class LaravelFrontendPreset extends Preset
         file_put_contents(app_path('Http/Controllers/HomeController.php'), static::compileControllerStub());
         file_put_contents(
             base_path('routes/web.php'),
-            "Auth::routes();\n\nRoute::get('/home', 'HomeController@index')->name('home');\n\n",
-            FILE_APPEND
+                "Auth::routes();\n\nRoute::get('/home', 'HomeController@index')->name('home');\n\n",
+                FILE_APPEND
         );
 
         $files = new Filesystem;
         $files->delete(resource_path('views/home.blade.php'));
         $files->exists($file = resource_path('views/home.blade.php')) && $files->delete($file);
         copy(__DIR__ . '/stubs/views/home.blade.php', resource_path('views/home.blade.php'));
-        
-        // COPY AUTH DIR $files->copyDirectory(__DIR__ . '/stubs/resources/views', resource_path('views'));
+        $files->copyDirectory(__DIR__ . '/stubs/views/auth', resource_path('views/auth'));
     }
 
     protected static function compileControllerStub()
