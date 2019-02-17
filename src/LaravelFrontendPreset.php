@@ -73,6 +73,7 @@ class LaravelFrontendPreset extends Preset
         $files = new Filesystem;
         $files->delete(resource_path('views/welcome.blade.php'));
         $files->exists($file = resource_path('views/home.blade.php')) && $files->delete($file);
+        $files->copy(__DIR__ . '/stubs/views/welcome.blade.php', resource_path('views/welcome.blade.php'));
         $files->copyDirectory(__DIR__ . '/stubs/views/layouts', resource_path('views/layouts'));
     }
 
@@ -86,9 +87,10 @@ class LaravelFrontendPreset extends Preset
         );
 
         $files = new Filesystem;
-        $files->delete(resource_path('views/home.blade.php'));
+        // $files->delete(resource_path('views/home.blade.php'));
         $files->exists($file = resource_path('views/home.blade.php')) && $files->delete($file);
-        copy(__DIR__ . '/stubs/views/home.blade.php', resource_path('views/home.blade.php'));
+        $files->copy(__DIR__ . '/stubs/views/home.blade.php', resource_path('views/home.blade.php'));
+        $files->copyDirectory(__DIR__ . '/stubs/views/layouts', resource_path('views/layouts'));
         $files->copyDirectory(__DIR__ . '/stubs/views/auth', resource_path('views/auth'));
     }
 
