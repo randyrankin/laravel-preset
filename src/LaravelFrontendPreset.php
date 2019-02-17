@@ -71,9 +71,9 @@ class LaravelFrontendPreset extends Preset
     protected static function updateViews()
     {
         $files = new Filesystem;
-        $files->delete(resource_path('views/welcome.blade.php'));
+        $files->exists($file = resource_path('views/welcome.blade.php')) && $files->delete($file);
         $files->exists($file = resource_path('views/home.blade.php')) && $files->delete($file);
-        $files->copy(__DIR__ . '/stubs/views/welcome.blade.php', resource_path('views/welcome.blade.php'));
+        copy(__DIR__ . '/stubs/views/welcome.blade.php', resource_path('views/welcome.blade.php'));
         $files->copyDirectory(__DIR__ . '/stubs/views/layouts', resource_path('views/layouts'));
     }
 
