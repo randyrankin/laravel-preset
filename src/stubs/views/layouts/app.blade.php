@@ -13,9 +13,9 @@
             }
         </script>
     </head>
-    <body class="antialiased bg-grey-lightest font-sans leading-tight text-black">
+    <body class="bg-grey-lightest h-screen antialiased">
         <div id="app" v-cloak>
-            @include ('partials.nav');
+            @include ('partials.nav')
             @yield('content')
         </div>
         @stack('beforeScripts')
