@@ -19,10 +19,13 @@ class LaravelFrontendPreset extends Preset
         static::updateViews();
     }
 
-    public static function installAuthScaffolding()
+    public static function installAuth()
     {
-        static::scaffoldAuth();
+        static::installAuthScaffolding();
     }
+
+
+
 
     public static function updatePackageArray($packages)
     {
@@ -90,6 +93,7 @@ class LaravelFrontendPreset extends Preset
         $files->exists($file = resource_path('views/home.blade.php')) && $files->delete($file);
         $files->copy(__DIR__ . '/stubs/views/home.blade.php', resource_path('views/home.blade.php'));
         $files->copyDirectory(__DIR__ . '/stubs/views/layouts', resource_path('views/layouts'));
+        $files->copyDirectory(__DIR__ . '/stubs/views/partials', resource_path('views/partials'));
         $files->copyDirectory(__DIR__ . '/stubs/views/auth', resource_path('views/auth'));
     }
 
