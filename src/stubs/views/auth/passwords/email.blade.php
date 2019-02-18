@@ -6,7 +6,7 @@
             <div class="w-full max-w-sm">
 
                 @if (session('status'))
-                    <div class="text-sm border border-t-8 rounded text-purple-darker border-purple-dark bg-purple-lightest px-3 py-4 mb-4" role="alert">
+                    <div class="text-sm border border-t-8 rounded text-green-darker border-green-dark bg-green-lightest px-3 py-4 mb-4" role="alert">
                         {{ session('status') }}
                     </div>
                 @endif
