@@ -13,7 +13,7 @@
             }
         </script>
     </head>
-    <body class="bg-grey-lightest h-screen antialiased">
+    <body class="antialiased bg-grey-lightest font-sans leading-tight text-black">
         <div id="app" v-cloak>
         	@if(Route::has('login'))
         	<div class="absolute pin-t pin-r mt-4 mr-4">
@@ -25,9 +25,9 @@
 		        @endauth
 		    </div>
 		   	@endif
-		   	<div class="flex items-center justify-center">
+		   	<div class="min-h-screen flex items-center justify-center">
 				<div>
-				    <div class="text-center font-bold tracking-wide text-5xl mb-2 text-grey-darker">Laravel</div>
+				    <div class="text-center font-thin tracking-wide text-5xl mb-2 text-grey-darker">Laravel</div>
 				    <div class="text-center text-grey-dark">with Vue, Tailwind and PurgeCSS</div>
 				</div>
 			</div>
