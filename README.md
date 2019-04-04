@@ -28,7 +28,7 @@ Once finished, run the build:
 - If you are using **yarn**, run: `yarn && ./node_modules/.bin/tailwind init && yarn run dev`
 
 ## Cleanup
-After installing the preset and running the build it is not really needed any more, so you may safely remove the package from composer.json and run `composer update`.
+After installing the preset and running the build, the package is not really needed anymore so you may remove it from composer.json and run `composer update`.
 
 ### Inspiration and Credits:
 - [Laracasts: How to Create Custom Laravel Presets](https://laracasts.com/series/how-to-create-custom-presets)
