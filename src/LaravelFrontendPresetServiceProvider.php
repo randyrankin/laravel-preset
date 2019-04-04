@@ -14,7 +14,7 @@ class LaravelFrontendPresetServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        PresetCommand::macro('laravel-frontend', function ($command) {
+        PresetCommand::macro('laravel-preset', function ($command) {
             LaravelFrontendPreset::install();
             $command->info('A custom Laravel frontend preset with Vue and TailwindCSS has been installed!');
             
