@@ -17,7 +17,7 @@ Note: purgeCss() and version() does not run in dev builds (see webpack.mix.js).
 `composer require randyrankin/laravel-preset`
 
 ### Usage:
-`php artisan preset randyrankin`
+`php artisan preset laravel-preset`
 
 Once finished, run the build:
 
