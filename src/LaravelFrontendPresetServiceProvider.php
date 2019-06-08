@@ -7,21 +7,23 @@ use Illuminate\Foundation\Console\PresetCommand;
 
 class LaravelFrontendPresetServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
     public function boot()
     {
         PresetCommand::macro('laravel-preset', function ($command) {
             LaravelFrontendPreset::install();
             $command->info('A custom Laravel frontend preset with Vue and TailwindCSS has been installed!');
             
-            if ($command->confirm('Do you wish to install the Laravel Auth scaffoloding?', false)) {
+            if ($command->confirm('Would you like to install the Laravel auth scaffoloding?', false)) {
                 LaravelFrontendPreset::installAuth();
                 $command->info('The Laravel Auth scaffolding has been installed!');
+
+                if ($command->confirm('Would you like to install the Laravel auth feature tests?', false)) {
+                    LaravelFrontendPreset::installAuthTests();
+                    $command->info('The Laravel auth feature tests have been installed!');
+                }
             }
+
+            
 
             // if ($command->confirm('Do you want to compile your assets?')) {
                 // LaravelFrontendPreset::installAuth();
