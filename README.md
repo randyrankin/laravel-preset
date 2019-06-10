@@ -5,10 +5,6 @@ A Laravel frontend preset that scaffolds out new applications just the way I lik
 ### Before you start, a word of advice
 This package should only be used with a **NEW** Laravel project as it will overwrite multiple files. After you run the preset command, it is **highly recommended** that the package be removed by running `composer remove randyrankin/laravel-preset`. 
 
-#### No Auth
-
-- welcome-stub only (no layout, home, nav, controller, route, etc.)
-
 ### What are we doing?
 - Remove Bootstrap, JQuery, Lodash and Popper.js
 - Install [Tailwind CSS 1.0](https://tailwindcss.com) 
