@@ -4,6 +4,7 @@ namespace RandyRankin\LaravelFrontendPreset;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\Console\PresetCommand;
+use Symfony\Component\Process\Process;
 
 class LaravelFrontendPresetServiceProvider extends ServiceProvider
 {
@@ -13,33 +14,31 @@ class LaravelFrontendPresetServiceProvider extends ServiceProvider
             LaravelFrontendPreset::install();
             $command->info('A custom Laravel frontend preset with Vue and TailwindCSS has been installed!');
             
-            if ($command->confirm('Would you like to install the Laravel auth scaffoloding?', false)) {
+            if ($command->confirm('Would you like to install the Laravel auth scaffoloding?', true)) {
                 LaravelFrontendPreset::installAuth();
                 $command->info('The Laravel Auth scaffolding has been installed!');
 
-                if ($command->confirm('Would you like to install the Laravel auth feature tests?', false)) {
+                if ($command->confirm('Would you like to install the Laravel auth feature tests?', true)) {
                     LaravelFrontendPreset::installAuthTests();
                     $command->info('The Laravel auth feature tests have been installed!');
                 }
             }
 
-            
+            if ($command->confirm('Would you like to compile your assets?', true)) {
+                $process = (new Process('npm install && npm run dev'))->setTimeout(null);
+                $command->comment('Installing and compiling assets ... ');
+                $process->run();
+                echo $process->getOutput();
+            }
 
-            // if ($command->confirm('Do you want to compile your assets?')) {
-                // LaravelFrontendPreset::installAuth();
-                // $command->info('A custom Laravel frontend preset with Vue, TailwindCSS and Auth scaffolding has been installed!');
-            // }
+            if ($command->confirm('Do you want to remove this preset package (recommended)?', true)) {
+                $process = new Process('composer remove randyrankin/laravel-preset');
+                $command->comment('Removing the package and updating composer ... ');
+                $process->run();
+                echo $process->getOutput();
+             }
 
-            // if ($command->confirm('Do you want to remove this package from composer.json (you really don't need it any more)?')) {
-                // LaravelFrontendPreset::installAuth();
-                // $command->info('A custom Laravel frontend preset with Vue, TailwindCSS and Auth scaffolding has been installed!');
-            // }
-
-            // $command->info('To finish setup, run one of the following commands:');
-            // $command->info('If you are using npm: npm install && ./node_modules/.bin/tailwind init && npm run dev');
-            // $command->info('If you are using yarn: yarn && ./node_modules/.bin/tailwind init && yarn run dev');
-
-            $command->comment('NOW you can build someting amazing!!');
+            $command->comment('All done. Now you can build someting amazing!!');
         });
     }
 }

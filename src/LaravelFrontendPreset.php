@@ -42,9 +42,12 @@ class LaravelFrontendPreset extends Preset
             Arr::except($packages, [
                 'bootstrap',
                 'bootstrap-sass',
-                'popper.js',
-                'laravel-mix',
                 'jquery',
+                'laravel-mix',
+                'lodash',
+                'popper.js',
+                'sass',
+                'sass-loader'
             ]
         ));
     }
@@ -77,22 +80,31 @@ class LaravelFrontendPreset extends Preset
     protected static function updateViews()
     {
         $files = new Filesystem;
+        $files->makeDirectory(resource_path('views/layouts', 0755, true));
+        copy(__DIR__ . '/stubs/resources/views/layouts/app.blade.php', resource_path('views/layouts/app.blade.php'));
+        
         $files->exists($file = resource_path('views/welcome.blade.php')) && $files->delete($file);
-        $files->exists($file = resource_path('views/home.blade.php')) && $files->delete($file);
         copy(__DIR__ . '/stubs/resources/views/welcome.blade.php', resource_path('views/welcome.blade.php'));
-        copy(__DIR__ . '/stubs/resources/views/home.blade.php', resource_path('views/home.blade.php'));
-        $files->copyDirectory(__DIR__ . '/stubs/resources/views/layouts', resource_path('views/layouts'));
-        $files->copyDirectory(__DIR__ . '/stubs/resources/views/partials', resource_path('views/partials'));
     }
 
     protected static function installAuthScaffolding()
     {
-        file_put_contents(app_path('Http/Controllers/HomeController.php'), static::compileControllerStub());
-        
         $files = new Filesystem;
+        
+        file_put_contents(app_path('Http/Controllers/HomeController.php'), static::compileControllerStub());
         $files->exists($file = base_path('routes/web.php')) && $files->delete($file);
         copy(__DIR__ . '/stubs/routes/web.php', base_path('routes/web.php'));
+        
+        $files->deleteDirectory(resource_path('views/layouts'));
+        $files->makeDirectory(resource_path('views/layouts', 0755, true));
+        copy(__DIR__ . '/stubs/resources/views/layouts/app-auth.blade.php', resource_path('views/layouts/app.blade.php'));
+        
+        $files->exists($file = resource_path('views/welcome.blade.php')) && $files->delete($file);
+        copy(__DIR__ . '/stubs/resources/views/welcome.blade.php', resource_path('views/welcome.blade.php'));
+        $files->exists($file = resource_path('views/home.blade.php')) && $files->delete($file);
+        copy(__DIR__ . '/stubs/resources/views/home.blade.php', resource_path('views/home.blade.php'));
         $files->copyDirectory(__DIR__ . '/stubs/resources/views/auth', resource_path('views/auth'));
+        $files->copyDirectory(__DIR__ . '/stubs/resources/views/partials', resource_path('views/partials'));
     }
 
     protected static function installAuthFeatureTests()

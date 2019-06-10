@@ -5,13 +5,17 @@ A Laravel frontend preset that scaffolds out new applications just the way I lik
 ### Before you start, a word of advice
 This package should only be used with a **NEW** Laravel project as it will overwrite multiple files. After you run the preset command, it is **highly recommended** that the package be removed by running `composer remove randyrankin/laravel-preset`. 
 
+#### No Auth
+
+- welcome-stub only (no layout, home, nav, controller, route, etc.)
+
 ### What are we doing?
 - Remove Bootstrap, JQuery, Lodash and Popper.js
-- Install [Tailwind CSS](https://tailwindcss.com) and [Purgecss](https://www.purgecss.com/), via [spatie/laravel-mix-purgecss](https://github.com/spatie/laravel-mix-purgecss)
-- Customizing webpack.mix.js with extract() and purgeCss()
-- Enhancing .gitignore
-- Including a layouts\app.blade.php file
-- Replacing views with Tailwind friendly versions
+- Install [Tailwind CSS 1.0](https://tailwindcss.com) 
+- Install [Laravel Mix Purgecss](https://github.com/spatie/laravel-mix-purgecss)
+- Customize webpack.mix.js
+- Enhance .gitignore
+- Replacing all views with Tailwind friendly versions
 
 Note: purgeCss() and version() does not run in dev builds (see webpack.mix.js). 
 
@@ -22,19 +26,16 @@ Note: purgeCss() and version() does not run in dev builds (see webpack.mix.js).
 `php artisan preset laravel-preset`
 
 You will be asked if you want to install the Laravel Auth scaffolding
-- Answer yes or no (the default is no)
+- Answer yes or no (the default is yes)
 
+You will be asked if you want to install Laravel auth feature tests 
+- Answer yes or no (the default is yes)
 
-Once finished, run the build:
+You will be asked if you want to install and compile assets (npm install && npm run dev)
+- Answer yes or no (the default is yes)
 
-- If you are using **npm**, run: `npm install && npm run dev`
-- If you are using **yarn**, run: `yarn && yarn run dev`
-
-### Auth Feature Tests
-If you chose to install the Laravel auth scaffolding, auth feature tests for "out of the box" Laravel auth scoffolding are included. 
-
-## Cleanup
-After installing the preset and running the build, the package is not really needed anymore so you may remove it by running `composer remove randyrankin/laravel-preset`.
+You will be asked if you want to remove this preset packag (recommended)
+- Answer yes or no (the default is yes)
 
 ### Inspiration and Credits:
 - [Laracasts: How to Create Custom Laravel Presets](https://laracasts.com/series/how-to-create-custom-presets)

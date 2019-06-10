@@ -20,9 +20,11 @@
     <body class="relative font-sans antialiased bg-gray-100">
         <div id="app" v-cloak>
             <div class="h-screen flex flex-col">
+                @include ('partials.nav')
                 <div class="flex-grow h-full my-8">
                     @yield('content')
                 </div>
+                @include ('partials.footer')
             </div>
         </div>
         @stack('beforeScripts')

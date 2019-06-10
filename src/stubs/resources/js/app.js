@@ -8,17 +8,6 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-Vue.directive('scroll', {
-    inserted: function (el, binding) {
-        let f = function (evt) {
-            if (binding.value(evt, el)) {
-                window.removeEventListener('scroll', f)
-            }
-        }
-        window.addEventListener('scroll', f)
-    }
-})
-
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -36,25 +25,12 @@ const app = new Vue({
     el: '#app',
     data() {
         return {
-            open: false,
-            ModalShowing: false
+            open: false
         }
     },
     methods: {
   		toggle() {
     		this.open = !this.open
-    	},
-        handleNavScroll: function (evt, el) {
-            if (window.scrollY > 50) {
-                el.setAttribute(
-                    'class', 'z-50 sticky top-0 left-0 flex items-center justify-between flex-wrap py-4 px-6 bg-white shadow transition-slow'
-                )             
-            }
-            else {
-                el.setAttribute(
-                    'class', 'z-50 sticky top-0 left-0 flex items-center justify-between flex-wrap py-4 px-6 bg-white transition-slow'
-                )
-            }
-        }
+    	}
   	}
 });
